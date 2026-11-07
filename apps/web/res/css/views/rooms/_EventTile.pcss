@@ -138,6 +138,10 @@ $left-gutter: 64px;
         background-color: inherit;
         color: inherit; /* inherit the colour from the dark or light theme by default (but not for code blocks) */
         flex: 1;
+        /* The body is a flex item of the annotation wrapper (body + edited marker).
+           min-width: 0 lets it shrink below its min-content size so a wide <pre>
+           scrolls inside the body instead of stretching the message past the viewport. */
+        min-width: 0;
 
         pre,
         code {

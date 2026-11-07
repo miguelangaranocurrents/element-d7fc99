@@ -89,10 +89,13 @@ export function EditMessageComposerWrapper(props: IEditMessageComposerProps): JS
         />
     );
 
+    // Render as a fragment, not a wrapping div: the event tile's body slot styles its direct
+    // children with overflow: hidden, which would clip the composer's absolutely positioned
+    // children (autocomplete dropdown). The composer itself opts out via its own overflow rule.
     return (
-        <div>
+        <>
             <MessageComposerUrlPreviewWrapper urlPreviewVm={vm} />
             {editor}
-        </div>
+        </>
     );
 }
